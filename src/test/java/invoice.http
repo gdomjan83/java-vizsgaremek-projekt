@@ -1,0 +1,56 @@
+POST http://localhost:8080/api/invoices
+Content-Type: application/json
+Accept: application/json
+
+{
+  "invoiceNumber": "1454545",
+  "issueDate": "2022-06-16",
+  "dueDate": "2022-08-18",
+  "paymentStatus": "UNPAYED",
+  "items": [
+    {
+      "name": "biciklilánc",
+      "pieces": 5,
+      "priceTotal": 1500
+    },
+    {
+      "name": "LED lámpa",
+      "pieces": 3,
+      "priceTotal": 900
+    }
+  ],
+  "amount": 2400,
+  "companyName": "Kuszi Kerékpárbolt",
+  "vatNumber": "12310178-1-45",
+  "bankAccountNumber": "42884483-17058745-12345678"
+}
+
+###
+PUT http://localhost:8080/api/invoices/payment
+Content-Type: application/json
+Accept: application/json
+
+{
+  "invoiceNumber": "1454545",
+  "amount": 2400,
+  "bankAccountNumber": "42884483-17058745-12345678"
+}
+
+###
+GET http://localhost:8080/api/invoice/2
+Accept: application/json
+
+###
+GET http://localhost:8080/api/invoices
+Accept: application/json
+
+###
+GET http://localhost:8080/api/invoices/find-item?itemName=köny
+Accept: application/json
+
+###
+GET http://localhost:8080/api/invoices?companyName=Euro
+Accept: application/json
+
+###
+DELETE http://localhost:8080/api/invoices/2

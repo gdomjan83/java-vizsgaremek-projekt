@@ -1,0 +1,56 @@
+###
+POST http://localhost:8080/api/companies
+Content-Type: application/json
+Accept: application/json
+
+{
+  "companyName": "Infornax Kft",
+  "vatNumber": "12364570-1-22",
+  "bankAccountNumber": "48964812-86548945-00000000"
+}
+
+###
+POST http://localhost:8080/api/companies/2
+Content-Type: application/json
+Accept: application/json
+
+{
+  "invoiceNumber": "RS110A16-4545",
+  "issueDate": "2022-06-11",
+  "dueDate": "2022-07-30",
+  "paymentStatus": "UNPAYED",
+  "items": [
+    {
+      "name": "Számológép",
+      "pieces": 2,
+      "priceTotal": 5000
+    },
+    {
+      "name": "Pénztárca",
+      "pieces": 4,
+      "priceTotal": 6000
+    }
+  ],
+  "amount": 11000
+}
+
+###
+GET http://localhost:8080/api/companies/1
+Accept: application/json
+
+###
+GET http://localhost:8080/api/companies/vat-number/12364570-1-22
+Accept: application/json
+
+###
+PUT http://localhost:8080/api/companies/1
+Accept: application/json
+Content-Type: application/json
+
+{
+  "bankAccountNumber": "12452678-00000000-45678945"
+}
+
+###
+DELETE http://localhost:8080/api/companies/1
+Accept: application/json
