@@ -182,7 +182,7 @@ class InvoiceControllerIT {
     @Test
     @DisplayName("Test: save invoice with future issue date.")
     void testValidationWithWrongIssueDate() {
-        createCommandWithNewCompany.setIssueDate(LocalDate.parse("2022-08-30"));
+        createCommandWithNewCompany.setIssueDate(LocalDate.parse("2035-08-30"));
         webTestClient.post()
                 .uri("/api/invoices")
                 .bodyValue(createCommandWithNewCompany)
